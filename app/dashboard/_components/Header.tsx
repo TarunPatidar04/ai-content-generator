@@ -9,7 +9,7 @@ const Header = () => {
         <input type="text" placeholder="Search" className="outline-none" />
       </div>
       <div>
-        <h2 className="bg-[#704ef8] p-1 rounded-full text-xs text-white px-2">
+        <h2 className="bg-[#704ef8] p-1 rounded-full md:block hidden text-xs text-white px-2">
           ️‍🔥Join Membership just for $9.99/month
         </h2>
       </div>
