@@ -22,11 +22,12 @@ export interface FORM {
 const TemplateListSection = ({ userSearchInput }: any) => {
   const [templateList, setTemplateList] = useState(Templates);
   useEffect(() => {
-    console.log(userSearchInput);
+    console.log("userSearchInput", userSearchInput);
     if (userSearchInput) {
       const filterData = Templates.filter((item) =>
         item.name.toLowerCase().includes(userSearchInput.toLowerCase())
       );
+      console.log("first", filterData)
       setTemplateList(filterData);
     } else {
       setTemplateList(Templates);

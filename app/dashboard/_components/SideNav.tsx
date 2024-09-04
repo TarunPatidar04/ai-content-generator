@@ -32,7 +32,7 @@ const SideNav = () => {
     console.log(path);
   });
   return (
-    <div className="h-screen p-5 shadow-sm border">
+    <div className="h-screen p-5 shadow-sm border bg-slate-100">
       <div className="flex justify-center">
         <Image src={`/logo.svg`} alt="logo" width={100} height={70} />
       </div>
