@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
 import { TEMPLATE } from "../../_components/TemplateListSection";
@@ -12,6 +12,8 @@ import { db } from "@/utils/db";
 import { AIOutput } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
+import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
+import { useRouter } from "next/navigation";
 
 interface PROPS {
   params: {
@@ -28,8 +30,16 @@ const CreateNewContent = (props: PROPS) => {
 
   const [loading, setLoading] = useState(false);
   const [aiOutput, setAiOutput] = useState<string>("");
+
   const { user } = useUser();
+  const { totalUsage, setTotalUsage } = useContext(TotalUsageContext);
+  const router = useRouter();
   const GenerateAIContent = async (formData: any) => {
+    if (totalUsage >= 10000) {
+      console.log("Please Update");
+      router.push("/dashboard/billing");
+      return;
+    }
     setLoading(true);
     const selectedPrompt = selectedTemplate?.aiPrompt;
     const FinalAiPrompt = JSON.stringify(formData) + ", " + selectedPrompt;
