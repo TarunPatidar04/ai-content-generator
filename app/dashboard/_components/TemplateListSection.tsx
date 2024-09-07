@@ -37,7 +37,9 @@ const TemplateListSection = ({ userSearchInput }: any) => {
     <div className="bg-slate-100">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10">
         {templateList.map((item: TEMPLATE, index: number) => (
-          <TemplateCard {...item} />
+          <div key={item.name}>
+            <TemplateCard {...item} />
+          </div>
         ))}
       </div>
     </div>

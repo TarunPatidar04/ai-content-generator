@@ -4,7 +4,7 @@ import { TotalUsageContext } from "../(context)/TotalUsageContext";
 import Header from "./_components/Header";
 import SideNav from "./_components/SideNav";
 
-const layout = ({
+const Layout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -26,4 +26,4 @@ const layout = ({
   );
 };
 
-export default layout;
+export default Layout;
