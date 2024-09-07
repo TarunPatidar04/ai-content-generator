@@ -13,25 +13,25 @@ const SideNav = () => {
       icon: Home,
       path: "/dashboard",
     },
-    {
-      name: "History",
-      icon: FileClock,
-      path: "dashboard/history",
-    },
+    // {
+    //   name: "History",
+    //   icon: FileClock,
+    //   path: "dashboard/history",
+    // },
     {
       name: "Billing",
       icon: WalletCards,
       path: "dashboard/billing",
     },
-    {
-      name: "Setting",
-      icon: Settings,
-      path: "dashboard/setting",
-    },
+    // {
+    //   name: "Setting",
+    //   icon: Settings,
+    //   path: "dashboard/setting",
+    // },
   ];
   const path = usePathname();
   useEffect(() => {
-    console.log(path);
+    // console.log(path);
   });
   return (
     <div className="h-screen p-5 shadow-sm border bg-slate-100 relative">

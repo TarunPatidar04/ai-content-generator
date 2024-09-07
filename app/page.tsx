@@ -1,10 +1,13 @@
-import { Button } from "@/components/ui/button";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-    <h2>Hyy This is Tarun</h2>
-    <Button variant="default">Hello</Button>
-    </>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/dashboard");
+  }, [router]);
+
+  return null;
 }

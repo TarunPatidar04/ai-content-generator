@@ -22,14 +22,14 @@ const UsageTrace = () => {
         eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress || "")
       );
     getTotalUsage(result);
-    console.log(result);
+    // console.log(result);
   };
   const getTotalUsage = (result: any) => {
     let total: number = 0;
     result.forEach((ele: any) => {
       total = total + Number(ele.aiResponse?.length);
     });
-    console.log(total);
+    // console.log(total);
     setTotalUsage(total);
   };
   return (

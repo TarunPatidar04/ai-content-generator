@@ -32,9 +32,9 @@ const OutputSection = ({ aiOutput }: PROPS) => {
         initialEditType="wysiwyg"
         height="400px"
         useCommandShortcut={true}
-        onChange={() =>
-          console.log(editorRef.current.getInstance().getMarkdown())
-        }
+        // onChange={() =>
+        //   console.log(editorRef.current.getInstance().getMarkdown())
+        // }
       />
     </div>
   );
