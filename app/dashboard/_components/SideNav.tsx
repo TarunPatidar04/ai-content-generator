@@ -41,16 +41,18 @@ const SideNav = () => {
       <hr className="my-5 border" />
       <div className="mt-3">
         {menuList.map((menu) => (
-          <Link href={menu.path}>
-            <div
-              key={menu.name}
-              className={`flex gap-2 mb-2 p-3 cursor-pointer hover:bg-[#704ef8] items-center hover:text-white rounded-md
+          <div key={menu.name}>
+            <Link href={menu.path}>
+              <div
+                key={menu.name}
+                className={`flex gap-2 mb-2 p-3 cursor-pointer hover:bg-[#704ef8] items-center hover:text-white rounded-md
               `}
-            >
-              <menu.icon className="h-6 w-6" />
-              <h2 className="text-lg">{menu.name}</h2>
-            </div>
-          </Link>
+              >
+                <menu.icon className="h-6 w-6" />
+                <h2 className="text-lg">{menu.name}</h2>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
       <div className="absolute bottom-10 left-0 w-full">

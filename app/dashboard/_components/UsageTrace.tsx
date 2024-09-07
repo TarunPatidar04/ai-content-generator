@@ -11,19 +11,21 @@ const UsageTrace = () => {
   const { user } = useUser();
   const { totalUsage, setTotalUsage } = useContext(TotalUsageContext);
   useEffect(() => {
-    user && Getdata();
+    const Getdata = async () => {
+      const result = await db
+        .select()
+        .from(AIOutput)
+        .where(
+          eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress || "")
+        );
+      getTotalUsage(result);
+      // console.log(result);
+    };
+    if (user) {
+      Getdata();
+    }
   }, [user]);
 
-  const Getdata = async () => {
-    const result = await db
-      .select()
-      .from(AIOutput)
-      .where(
-        eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress || "")
-      );
-    getTotalUsage(result);
-    // console.log(result);
-  };
   const getTotalUsage = (result: any) => {
     let total: number = 0;
     result.forEach((ele: any) => {

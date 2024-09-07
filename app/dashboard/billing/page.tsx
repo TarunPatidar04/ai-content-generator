@@ -8,8 +8,9 @@ import { db } from "@/utils/db";
 import { userSubcription } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
+import Script from "next/script";
 
-const page = () => {
+const Page = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useUser();
   const createSubscriptions = () => {
@@ -60,7 +61,12 @@ const page = () => {
   };
   return (
     <div>
-      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      {/* Razorpay Checkout Script */}
+      <Script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        strategy="lazyOnload"
+      />
+
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
           Upgrade With Monthly Plan
@@ -117,4 +123,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
